@@ -12,6 +12,22 @@ void calculator(int num1, int num2, char operator) {
       result = num1 - num2;
       break;
     case '/':
+      while (1) {
+        if (num2 == 0) {
+          int newNum1;
+          int newNum2;
+          printf("Please enter another two numbers since cant divide a number by 0\n");
+          scanf("%d", &newNum1);
+          printf("Enter the second number\n");
+          scanf("%d", &newNum2);
+          if (newNum2 == 0) {
+            printf("Error pls try again \n\n");
+          } else {
+            result = newNum1 / newNum2;
+            break;
+          }
+        }
+      }
       result = num1 / num2;
       break;
     case '*':
