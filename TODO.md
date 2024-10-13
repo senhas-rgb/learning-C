@@ -1,7 +1,7 @@
 # Project list and their progress
 
-- [ ] Calculator
-- [ ] Guess the number
+- [x] Calculator
+- [x] Guess the number
 - [ ] Temperature converter
 - [ ] Basic To-Do list 
 - [ ] Prime number checker
