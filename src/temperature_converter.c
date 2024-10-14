@@ -21,7 +21,8 @@ void CtoF() {
   scanf("%f", &celsiusValue);
   result = (celsiusValue * decimal) + 32;
   printf(ANSI_COLOR_ANSWER);
-  printf("%f\n\n", result);
+  printf("%.2f", result);
+  printf(ANSI_COLOR_GREEN "F\n\n");
   printf(ANSI_COLOR_RESET);
   
 }
@@ -38,7 +39,8 @@ void FtoC() {
   scanf("%f", &fahValue);
   result = (fahValue - 32) * decimal;
   printf(ANSI_COLOR_ANSWER);
-  printf("%f\n\n", result);
+  printf("%.2f", result);
+  printf(ANSI_COLOR_GREEN "C\n\n");
   printf(ANSI_COLOR_RESET);
 }
 
@@ -49,8 +51,8 @@ int main(int argc, char const *argv[]) {
   printf("Welcome to the temperature converter\n\n");
   printf(ANSI_COLOR_RESET);
   do {
-    printf("Please enter a option to continue;\n1) Convert Celsius to Fahrenheit\n2) Convert Fahrenheit to Celsius\n3) Exit the program.\n");
-    printf("Please enter only a number>>>\n");
+    printf("Please enter a option to continue:\n1) Convert Celsius to Fahrenheit\n2) Convert Fahrenheit to Celsius\n3) Exit the program.\n");
+    printf("Please enter only a number\n>>");
     scanf("%d", &option);
     if (option == 1) {
       CtoF();
