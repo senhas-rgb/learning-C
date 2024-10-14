@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 void calculator(int num1, int num2, char operator) {
   int result;
   switch(operator) {
@@ -12,23 +11,9 @@ void calculator(int num1, int num2, char operator) {
       result = num1 - num2;
       break;
     case '/':
-      while (1) {
-        if (num2 == 0) {
-          int num1 = 1;
-          int num2 = 1;
-          printf("Please enter another two numbers since cant divide a number by 0\n");
-          scanf("%d", &num1);
-          printf("Enter the second number\n>>");
-          scanf("%d", &num2);
-          if (num2 == 0) {
-            return;
-          } else {
-            result = num1 / num2;
-            break;
-          }
-        } else {
-          break;
-        }
+      while (num2 == 0) {
+        printf("Division by zero is not allowed. Please enter another number for the second operand:\n>> ");
+        scanf("%d", &num2);
       }
       result = num1 / num2;
       break;
@@ -36,9 +21,8 @@ void calculator(int num1, int num2, char operator) {
       result = num1 * num2;
       break;
     default:
-      printf("Identifier error. Please rerun the program.\n");
+      printf("Invalid operator. Please rerun the program.\n");
       exit(0);
-      break;
   }
   printf("The answer is: %d\n", result);
 }
@@ -46,29 +30,26 @@ void calculator(int num1, int num2, char operator) {
 int main() {
   int option;
   do {
-    printf("Please select a option:\n1:Continue\n2:Leave\n\n>>");
+    printf("Please select an option:\n1: Continue\n2: Leave\n\n>> ");
     scanf("%d", &option);
     if (option == 1) {
-      int num1;
-      int num2;
+      int num1, num2;
       char operator;
-      printf("Please enter a number: \n>>");
+      printf("Please enter the first number: \n>> ");
       scanf("%d", &num1);
-      printf("Enter another number: \n>>");
+      printf("Please enter the second number: \n>> ");
       scanf("%d", &num2);
-      printf("Please enter a operator that you like to perform the calculation with.\n");
-      printf("Available operators:\n+ for addition\n- for substraction\n* for multiplication\n/ for division\n");
-      printf("Please enter a option: \n>>");
+      printf("Please enter an operator (+, -, *, /): \n>> ");
       scanf(" %c", &operator);
       calculator(num1, num2, operator);
-      break;
-    } else if(option == 2) {
-      printf("You exit the program\n");
+    } else if (option == 2) {
+      printf("You exited the program.\n");
       break;
     } else {
-      printf("Error try again.\n");
-      continue;
+      printf("Invalid option, please try again.\n");
     }
-  } while(1);
+  } while (option != 2);
+
   return 0;
 }
+
