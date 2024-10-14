@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
-int CODES[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-int user;
+/*int CODES[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};*/
+int userInput;
 int position;
 
 int main() {
@@ -16,15 +17,14 @@ int main() {
       int count = 1;
       do {
         printf("Enter a number between 1 and 10 until you guess the correct number %d.\n", position);
-        scanf("%d", &user);
-        if (position >= 10) {
-          position = 0;
-        }
-        if (user == CODES[position]) {
+        scanf("%d", &userInput);
+        srand(time(NULL));
+        int position = rand() % 10 + 1;
+        if (userInput == position) {
           printf("You guessed the number correct in %d guess(s)\n\n", count);
           position++;
           break;
-        } else if (user == 000) {
+        } else if (userInput == 0) {
           printf("You gave up.\n");
           position++;
           break;
